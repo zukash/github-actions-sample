@@ -10,8 +10,9 @@ jobs:
       #   with:
       #     repository: zukash/greeting
       #     path: ${RUNNER_TEMP}
-      - run: |
-        pwd
-        ls -la
-        echo ${RUNNER_TEMP}
+      - name: hoge
+        run: |
+          pwd
+          ls -la
+          echo ${RUNNER_TEMP}
 
