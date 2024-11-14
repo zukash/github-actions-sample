@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: zukash/github-actions-sample
-          path: ${{ runner.temp }}/actions
+          path: ${{ runner.temp }}/github-actions-sample
 
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -22,7 +22,7 @@ jobs:
       - name: Run the action
         run: |
           ls ${RUNNER_TEMP}
-          python ${RUNNER_TEMP}/actions/test.py > hello_world.txt
+          python ${RUNNER_TEMP}/github-actions-sample/test.py > hello_world.txt
 
       - name: Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
