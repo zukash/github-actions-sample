@@ -21,6 +21,7 @@ jobs:
 
       - name: Run the action
         run: |
+          ls ${RUNNER_TEMP}
           python ${RUNNER_TEMP}/test.py > hello_world.txt
 
       - name: Push changes
