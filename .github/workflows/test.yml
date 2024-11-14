@@ -7,6 +7,8 @@ jobs:
     steps:
       - name: Check out the main repository
         uses: actions/checkout@v2
+        with:
+          path: main
 
       - name: Check out the action repository
         uses: actions/checkout@v2
