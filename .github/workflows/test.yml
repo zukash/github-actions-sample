@@ -5,14 +5,23 @@ jobs:
   test-action:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      # - uses: actions/checkout@v2
-      #   with:
-      #     repository: zukash/greeting
-      #     path: ${RUNNER_TEMP}
-      - name: hoge
-        run: |
-          pwd
-          ls -la
-          echo ${RUNNER_TEMP}
+      - name: Check out the main repository
+        uses: actions/checkout@v2
 
+      - name: Check out the action repository
+        uses: actions/checkout@v2
+        with:
+          repository: zukash/github-actions-sample
+          path: ${RUNNER_TEMP}
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+
+      - name: Run the action
+        run: |
+          python ${RUNNER_TEMP}/test.py > hello_world.txt
+
+      - name: Push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
