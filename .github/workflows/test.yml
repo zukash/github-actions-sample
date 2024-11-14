@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      # - uses: actions/checkout@v2
+      #   with:
+      #     repository: zukash/greeting
+      #     path: ${RUNNER_TEMP}
+      - run: |
+        pwd
+        ls -la
+        echo ${RUNNER_TEMP}
+
